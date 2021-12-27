@@ -1,21 +1,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Yuji+Hentaigana+Akebono&display=swap");
-*,
-*::before,
-*::after {
+@keyframes Appear {
+  0% {
+    opacity: .2;
+    transform: translate(50%, 0); }
+  50% {
+    opacity: .5;
+    transform: translate(-55%, 0); }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0); } }
+
+@keyframes animate-glow {
+  0% {
+    opacity: 0;
+    filter: brightness(3) saturate(3);
+    transform: scale(0.8, 0.8); }
+  100% {
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+    transform: scale(1, 1); } }
+
+* {
   padding: 0;
-  margin: 0;
-  box-sizing: inherit; }
+  margin: 0; }
 
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  box-sizing: border-box; }
+
+*, *::before,
+*::after {
+  box-sizing: inherit; }
 
 body {
-  background: url(../Asset/img/R1.jpg) top center/cover no-repeat;
-  background-attachment: fixed;
-  font-family: 'Lato', sans-serif;
-  box-sizing: border-box;
-  top: 0; }
+  font-family: 'Lato', sans-serif; }
 
 .main-container {
   padding: 4rem 6rem;
@@ -25,20 +44,17 @@ body {
   text-align: center; }
 
 .heading-primary {
-  color: #111;
   padding: 2rem;
   font-size: 7rem; }
 
 .heading-secondary {
   font-size: 4rem;
   padding: 1.5rem;
-  color: #444;
   text-decoration: overline; }
 
 .heading-tertiary {
   font-size: 3.5rem;
-  padding: 1.3rem;
-  color: #777; }
+  padding: 1.3rem; }
 
 .subheading {
   font-size: 2rem;
@@ -75,50 +91,69 @@ body {
   box-shadow: -3px -3px 6px rgba(236, 234, 234, 0.884), 3px 3px 6px rgba(0, 0, 0, 0.692);
   transition: all .3s ease; }
   .btn:hover {
-    background: #687530;
+    background: #292D2E;
     color: #fff;
     transform: translateY(-1rem); }
 
 .header {
-  height: 90vh;
-  width: 100vw; }
+  height: 70vh;
+  width: 100vw;
+  margin-bottom: 20rem; }
+  .header-bg {
+    background: url(../Asset/img/R1.jpg) top center/cover;
+    height: 100%;
+    width: 100%; }
   .header-text {
-    font-family: 'Yuji Hentaigana Akebono', cursive;
-    max-width: 25%;
-    padding: 1rem;
-    margin: 3rem;
-    border-radius: 0 0 35px 0;
-    color: #f7f7f7; }
+    font-family: "Yuji Hentaigana Akebono", cursive;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    padding: 4rem;
+    max-width: 45%;
+    color: #f7f8eed8;
+    border-radius: 57px;
+    background: linear-gradient(145deg, #252929, #2c3031);
+    box-shadow: 6px 6px 22.5px #151717, -6px -1px 2px #3e4445;
+    animation-name: Appear;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
 
 .nav {
   position: fixed;
-  width: 15%;
+  max-width: 15%;
   right: 0%;
   top: 50%;
   transform: translate(1%, -50%);
-  z-index: 100; }
+  z-index: 10; }
   .nav-list {
     display: block;
     text-align: center;
-    padding: 1rem 4rem .5rem 1rem;
+    padding: 1rem 4rem 0.5rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
     font-size: 3rem;
-    background: rgba(104, 117, 48, 0.9);
-    border-radius: 5px;
-    box-shadow: 5px -5px 7px rgba(51, 51, 51, 0.562); }
+    background: rgba(41, 45, 46, 0.9);
+    border-radius: 5px; }
 
 .form-container {
-  background: linear-gradient(120deg, #e2dada 40%, transparent 45%), url(../Asset/img/R2.jpg);
-  background-repeat: no-repeat;
-  background-position: top; }
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: #292D2E;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  margin: 10rem 0; }
 
 .form {
+  border-right: 1px solid #292D2E;
   text-align: left;
   font-size: 2rem;
   text-transform: capitalize;
   color: #777;
-  width: 30%;
+  flex-basis: 40%;
   padding: 2rem; }
 
 .form-control {
@@ -138,7 +173,7 @@ body {
   margin: .5rem 0;
   padding: 1.5rem 3rem;
   border: none;
-  border-bottom: 2px solid #687530;
+  border-bottom: 2px solid #292D2E;
   border-radius: 4px; }
   .form-input:focus {
     outline: 0;
@@ -151,14 +186,47 @@ body {
     transform: translateY(0);
     opacity: 1; }
 
-.main-container {
-  background-color: rgba(217, 214, 208, 0.99);
-  width: 100vw; }
+.form-img {
+  flex-basis: 50%;
+  width: 50%;
+  transform: translate(-1%, -20%);
+  border-radius: 5px; }
+
+.value {
+  max-width: 84rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 3%;
+  font-size: 2rem; }
+  .value1, .value2, .value3 {
+    height: 50rem;
+    aspect-ratio: 1;
+    color: #FEF4D6;
+    text-align: left;
+    padding: 23rem 2rem 1rem;
+    overflow: hidden;
+    animation-name: animate-glow;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-duration: 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: backwards;
+    transition: transform .4s; }
+    .value1:hover, .value2:hover, .value3:hover {
+      transform: translateY(-5px); }
+  .value1 {
+    background: linear-gradient(10deg, rgba(41, 45, 46, 0.9), transparent), url(../Asset/img/comfort.jpg) top center/cover no-repeat; }
+  .value2 {
+    background: linear-gradient(10deg, rgba(41, 45, 46, 0.9), transparent), url(../Asset/img/hamburger.jpg) top center/cover no-repeat; }
+  .value3 {
+    background: linear-gradient(10deg, rgba(41, 45, 46, 0.9), transparent), url(../Asset/img/kyle-bushnell-hzsfX4PdDnM-unsplash.jpg) top center/cover no-repeat; }
 
 .container {
   width: 95%;
   margin: 3rem auto;
   display: flex;
+  flex-direction: column;
   overflow-x: scroll;
   scroll-snap-align: x mandatory;
   scroll-snap-type: proximity; }
@@ -166,70 +234,38 @@ body {
 .specials {
   position: relative;
   display: flex;
-  flex: 1;
   width: 80vw;
-  height: 70vh;
-  align-items: center;
   margin: 0 1rem;
-  position: relative; }
+  position: relative;
+  gap: 5rem;
+  padding: 4rem;
+  border-bottom: 2px solid #292D2E; }
   .specials-text {
-    flex: 1; }
-  .specials-images {
-    position: relative;
-    flex: 2;
-    align-items: center;
-    width: 40%;
-    height: 47%; }
-    .specials-images:hover > *:not(:hover) {
-      transform: translatey(9rem) scale(0.7); }
-  .specials-img {
-    position: absolute;
-    width: 35%;
-    border-radius: 9px;
-    border: 2px solid transparent;
-    box-shadow: -3px -3px 6px rgba(255, 255, 255, 0.671);
-    transition: transform 0.4s ease-in-out; }
-    .specials-img:hover {
-      border: 2px solid #FFF788;
-      transform: translateX(1rem) scale(1.1);
-      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.7);
-      z-index: 2; }
-
-.img1 {
-  top: 0; }
-
-.img2 {
-  top: 5rem;
-  right: 50%; }
-
-.img3 {
-  top: 10rem;
-  right: 30%; }
+    flex: 0 0 40%; }
 
 .rows {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   overflow-x: scroll;
-  scroll-snap-type: proximity; }
+  scroll-snap-type: proximity;
+  overflow: scroll;
+  justify-content: center;
+  width: 90rem;
+  overflow: scroll;
+  padding-left: 10rem; }
 
 .card {
   list-style: none;
-  min-width: 25%;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem;
   border-radius: 5px;
-  background-color: #eeeee4; }
+  background-color: #FEF4D6; }
   .card-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: block;
     margin-bottom: 0.5rem; }
   .card-image {
-    text-align: center;
-    font-size: 8rem; }
-  .card-description {
-    font-size: 1.5rem;
-    font-family: inherit;
-    font-weight: 100; }
+    display: block;
+    text-align: left;
+    font-size: 4rem; }
 
 .order-button {
   font-size: 1.5rem;
@@ -238,11 +274,12 @@ body {
   padding: 10px 30px;
   border: none;
   border-radius: 5px;
-  background: #6f9c6f;
+  background: #BBC1B3;
   transition: .4s .01s ease-in-out; }
   .order-button:hover {
-    background: #4da54d;
+    background: #473D46;
+    color: #f7f7f7;
     transform: translateY(-2px); }
   .order-button:active {
-    background: #19a119;
+    background: #292D2E;
     transform: translateY(1px); }
