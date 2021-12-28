@@ -5,18 +5,21 @@ const filteringJsonData = async () => {
     menuTemplate(response.data);
 }
 
+const generateHTML = (item) =>{
+  return  `
+  <li id=${item.id} class="card">
+    <h3 class="subheading card-header"><span class="card-image">${item.image}</span><span>${item.productName}</span></h3>
+  </li>
+  `
+}
+
 const menuTemplate = (a) => {
 
     a.map(item => {
         menuCards = document.createElement('sub');
-        menuCards.innerHTML = `
-      <li id=${item.id} class="card">
-        <h3 class="subheading card-header"><span class="card-image">${item.image}</span><span>${item.productName}</span></h3>
-        <button class="order-button">$${item.price}</button>
-      </li>
-      `;
+        menuCards.innerHTML = generateHTML(item);
 
-       document.querySelector('.rows').appendChild(menuCards);
+       document.querySelector('.breakfast-list').appendChild(menuCards);
     })
     
 }
