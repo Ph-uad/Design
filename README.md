@@ -1,2 +1,2 @@
 # Design
-A resturant wensite for ordering and reservations
+A resturant website for ordering and reservations
