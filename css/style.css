@@ -24,17 +24,29 @@
   padding: 0;
   margin: 0; }
 
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-  box-sizing: border-box; }
-
 *, *::before,
 *::after {
   box-sizing: inherit; }
 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 37.5%; } }
+  @media (max-width: 56.2em) {
+    html {
+      font-size: 44.444444%; } }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 80%; } }
+
 body {
-  font-family: 'Lato', sans-serif; }
+  font-family: 'Lato', sans-serif;
+  box-sizing: border-box; }
 
 .main-container {
   padding: 4rem 6rem;
@@ -84,16 +96,23 @@ body {
   backdrop-filter: blur(10px); }
 
 .btn {
-  padding: 1rem 2rem;
+  width: 80%;
+  margin: 9rem auto;
+  display: block;
+  padding: 1.5rem 2rem;
   color: #333;
+  font-size: 1.5rem;
   border: transparent;
   border-radius: 6px;
-  box-shadow: -3px -3px 6px rgba(236, 234, 234, 0.884), 3px 3px 6px rgba(0, 0, 0, 0.692);
+  box-shadow: -3px -3px 6px rgba(129, 127, 127, 0.884), 3px 3px 6px rgba(0, 0, 0, 0.692);
   transition: all .3s ease; }
-  .btn:hover {
+  .btn:hover, .btn:focus {
     background: #292D2E;
     color: #fff;
-    transform: translateY(-1rem); }
+    transform: translateY(-0.4rem); }
+  .btn:active {
+    transform: translateY(2rem);
+    color: #fff; }
 
 .rows {
   display: flex;
@@ -133,20 +152,30 @@ body {
 
 .nav {
   position: fixed;
-  max-width: 15%;
-  right: 0%;
-  top: 50%;
-  transform: translate(1%, -50%);
-  z-index: 10; }
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 100vw;
+  background-color: white; }
+  .nav-logo {
+    font-weight: 300;
+    font-size: 6rem;
+    letter-spacing: -2px; }
+    .nav-logo-sub {
+      font-size: 3rem;
+      font-style: italic;
+      color: #555; }
   .nav-list {
-    display: block;
-    text-align: center;
-    padding: 1rem 4rem 0.5rem 1rem;
-    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 1rem 4rem;
     list-style: none;
-    font-size: 3rem;
-    background: rgba(41, 45, 46, 0.9);
-    border-radius: 5px; }
+    font-size: 3rem; }
+
+.list-link {
+  color: black !important; }
 
 .form-container {
   display: flex;
@@ -233,7 +262,7 @@ body {
   .value3 {
     background: linear-gradient(10deg, rgba(41, 45, 46, 0.9), transparent), url(../Asset/img/kyle-bushnell-hzsfX4PdDnM-unsplash.jpg) top center/cover no-repeat; }
 
-.container {
+.h-container {
   width: 95%;
   margin: 3rem auto;
   display: flex;
@@ -242,6 +271,9 @@ body {
   scroll-snap-align: x mandatory;
   scroll-snap-type: proximity; }
 
+.h-container > :not(:last-child) {
+  border-bottom: 1rem solid #292D2E; }
+
 .specials {
   position: relative;
   display: flex;
@@ -249,8 +281,7 @@ body {
   margin: 0 1rem;
   position: relative;
   gap: 5rem;
-  padding: 4rem;
-  border-bottom: 2px solid #292D2E; }
+  padding: 4rem; }
   .specials-text {
     flex: 0 0 40%;
     border-right: 1px dotted #292D2E; }
