@@ -37,3 +37,23 @@ const joker = (who) =>{
 }
 
 filteringJsonData();
+
+
+
+
+
+const arrow = document.querySelector('#upDown');
+const to = document.querySelector('.top');
+
+
+arrow.addEventListener('click', function(e){ 
+   
+  document.querySelector('.top').classList.toggle('rotate');
+  let r = 'rotate';
+  if (to.classList.length > 1){
+    to.href= "#footer";
+  }else{
+    to.href= "#top";
+  }
+})
+

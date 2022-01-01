@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+
     <header class="header" id="top">
-        <header class="header-bg">
-        </header>
-        <nav class="nav">
-          
-                <h1 class="nav-logo">626<span class="nav-logo-sub italic">designs</span> </h1>
+        <div class="header-bg">
+        </div>
+        <nav class="nav">  
+             <h1 class="nav-logo">626<span class="nav-logo-sub italic">designs</span> </h1>
         
             <ul class="nav-menu">
                 <li class="nav-list">
                     <a href="#" class="list-link">🍽 Order</a>
                 </li>
                 <li class="nav-list">
-                    <a href="#reservation" class="list-link"> Reservations </a>
+                    <a href="#reservation" class="list-link"> Reservations🪑 </a>
                 </li>
             </ul>
         </nav>
@@ -36,7 +36,7 @@
         </div>
     </header>
 
-    <main class="main-container ">
+    <main class="main-container">
 
         <div class="value">
             <div class="value1">
@@ -115,44 +115,70 @@
         </div>
 
 
-        <div class="form-container" id="reservation">
-            <form action="#" class="form">
+        <div class="form-container slim-width" id="reservation">
+            <div class="form-title">
                 <h2 class="reservations heading-secondary">Reservation</h2>
+                <p class="sub-text ">
+                  For parties of six or more, we recommend making reservations at least two weeks in advance. For walk-ins, we only seat parties on a first come, first served basis.
+                </p>
+            </div>
 
+            <form action="#" class="form">
                 <div class="form-control">
 
-                    <input class="form-input" type="text" name="" id="name" placeholder="name">
+                    <input class="form-input" type="text" name="" id="name" placeholder="Name">
                     <label for="name"> name</label>
                 </div>
 
                 <div class="form-control">
 
-                    <input class="form-input" type="number" phone Number="" id="phoneNumber" placeholder="phone Number">
+                    <input class="form-input" type="number"  id="phoneNumber" placeholder="Phone Number">
                     <label for="phoneNumber"> phone Number</label>
                 </div>
 
                 <div class="form-control">
+                    <input type="email" class="form-input" id="email" placeholder="Email">
+                    <label for="Email"> Email</label>
+                </div>
 
-                    <select name="" id="tables" class="form-input">
-                        <option value="Table1"> Table 1</option>
-                        <option value="Table2"> Table 2</option>
-                        <option value="Table3"> Table 3</option>
-                    </select>
-                    <label for="Table type"> Reservation Table</label>
+                <div class="form-control">
+                    <input type="number" class="form-input" id="numberOfGuests" placeholder="Number of Guest">
+                    <label for="numberOfGuests"> Number of Gues</label>
+                </div>
+
+                <div class="form-control">
+                    <input type="text" class="form-input" id="comment" placeholder="Brief comment">
+                    <label for="comment">Brief Comment</label>
+                </div>
+
+                <div class="form-control form-bit">
+                    <input type="date" class="half form-input" value="2022-01-22" id="comment" placeholder="Date">
+                    <input type="time" class="half form-input" value="00:00" id="comment" placeholder="time">
                 </div>
 
                 <button class="reservation-btn btn">Reserve space</button>
             </form>
-                <img src="./Asset/img/reserved.jpg"  class="form-img" alt="">
+             
         </div>
         <div class="gallery">
 
         </div>
     </main>
 
+    <footer id="footer">
+        <span class="social-links"><a href="#">Instagram</a></span>
+        <span class="social-links"><a href="#">Twitter</a></span>
+        <span class="social-links"><a href="#">Snapchat</a></span>
+    </footer>
+
+    <div class="arrowup">
+       <button class="upDown" id="upDown" href="#top">
+        <a href="#footer" class="top" aria-label="Back to top" title="Back to top">&UpArrow;</a>
+       </button> 
+   </div>
 
 
-    <a href="#top" class="top" aria-label="Back to top" title="Back to top">↑</a>
+  
 
     <script src="./script.js"></script>
 </body>
